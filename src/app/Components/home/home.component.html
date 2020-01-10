@@ -1,0 +1,93 @@
+<div class="main">	
+    <h1>Yassine's Weather App</h1>
+    
+    <div class="w3_agile_main_grids">
+        <div class="w3layouts_main_grid">
+            <div class="w3layouts_main_grid_left">
+                <h2>{{city}}</h2>
+                <p> {{currentWeather.summary}} </p>
+                <h3>Now</h3>
+                <h4> {{currentWeather.temprature}} <span>°c</span></h4>
+            </div>
+            <div class="w3layouts_main_grid_right">
+                <sc-skycons [weather]="currentWeather.icon" [color]="'white'" style="width: 70%;"></sc-skycons> 
+                <div id="w3time">
+
+                </div>
+                <div class="w3layouts_date_year">
+                    {{ currentWeather.date | date }}
+                </div>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        
+        <div class="agileits_w3layouts_main_grid">
+            <div class="agile_main_grid_left">
+                <div class="wthree_main_grid_left_grid">
+                    <div class="w3ls_main_grid_left_grid1">
+                        <div class="w3l_main_grid_left_grid1_left">
+                            <h3>Cloud</h3>
+                            <p> {{currentWeather.cloud}} <span>%</span></p>
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+                    <div class="w3ls_main_grid_left_grid1">
+                        <div class="w3l_main_grid_left_grid1_left">
+                            <h3>Wind</h3>
+                            <p> {{currentWeather.wind}} <span>Km/h</span></p>
+                        </div>
+                        
+                        <div class="clear"> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w3_agileits_main_grid_right">
+                <div class="agileinfo_main_grid_right_grid">
+                    <ngb-tabset>
+                        <ngb-tab title="Today">
+                          <ng-template ngbTabContent>
+                            
+                            <div class="w3_agileits_tabs resp-tab-content hor_1 resp-tab-content-active" aria-labelledby="hor_1_tab_item-0" style="display:block">
+                                <div class="w3_main_grid_right_grid1"  *ngFor="let weather of today">
+                                    <div class="w3_main_grid_right_grid1_left">
+                                        <p>{{ weather.time | date:'shortTime' }}</p>
+                                    </div>
+                                    <div class="w3_main_grid_right_grid1_right">
+                                        <p>{{ weather.temprature}}<i>°c</i><span>{{ weather.summary }}</span></p>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                                
+                               
+                            </div>
+                          </ng-template>
+                        </ngb-tab>
+                        <ngb-tab style="color: black;" title="This Week">
+                          <ng-template ngbTabContent>
+                            <div class="w3_agileits_tabs resp-tab-content hor_1 resp-tab-content-active" aria-labelledby="hor_1_tab_item-0" style="display:block">
+                                <div class="w3_main_grid_right_grid1"  *ngFor="let weather of week">
+                                    <div class="w3_main_grid_right_grid1_left">
+                                        <p>{{ weather.time | date }}</p>
+                                    </div>
+                                    <div class="w3_main_grid_right_grid1_right">
+                                        <p>{{ weather.temprature}}<i>°c</i><span>{{ weather.summary }}</span></p>
+                                    </div>
+                                    <div class="clear"> </div>
+                                </div>
+                                
+                               
+                            </div>
+                          </ng-template>
+                        </ngb-tab>
+                      
+                      </ngb-tabset>
+                </div>
+            </div>
+            <div class="clear"> </div>
+        </div>
+    </div>
+    <div class="agileits_copyright" >
+        <p style="background-color: black;">© {{year}} All rights reserved | Design by <a href="https://github.com/Giratin">Yassine Sta</a></p>
+    </div>
+</div>
+
